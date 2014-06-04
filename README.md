@@ -17,7 +17,7 @@ and glue them together using various pieces
 
 * [WP-API](https://github.com/WP-API/WP-API) for enabling a JSON-based API for Wordpress
 * [pods-json-api](https://github.com/pods-framework/pods-json-api) for accessing your Pods
-* **wp-pods-api.js** from *this* project, so you can use it in your own Angular.js app
+* [wp-pods-api.js](/example/app/scripts/wp-pods-api.js) from *this* project, so you can use it in your own Angular.js app
 
 to make things easier, this repo also contains a small Angular.js app that can list, add, edit and delete pods from your existing wordpress installation.
 
@@ -36,10 +36,10 @@ This assumes that you want your Angular App and the Wordpress Backend to live in
 
 ### *client* in location 2 // localhost
 1. clone this repository into a folder of your choice
-2. edit the settings in XYZ.js
+2. edit the settings in [the config() block of your main app.js](/example/app/scripts/app.js#L22)
     - APIend
-    - podType
-    - edit the Auth header
+    - podTypes
+    - auth header
 3. run `grunt:serve`
 4. check out the list of Pods in your browser at `http:// localhost:3000`
 5. add, edit and delete them
