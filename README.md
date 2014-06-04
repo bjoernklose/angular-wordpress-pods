@@ -25,7 +25,7 @@ to make things easier, this repo also contains a small Angular.js app that can l
 
 This assumes that you want your Angular App and the Wordpress Backend to live in 2 separate locations, which can even be different domains [if you enable CORS](https://github.com/WP-API/WP-API/issues/144).
 
-### in location 1
+### *server* in location 1
 1. install Wordpress
 2. install Pods as a plugin
 3. install WP-API as a plugin (until it's merged with WP Core)
@@ -34,7 +34,7 @@ This assumes that you want your Angular App and the Wordpress Backend to live in
 6. install the [base-auth-plugin](https://github.com/WP-API/Basic-Auth)
 7. create a new user that will be user for http basic auth combination (or use your admin account from first install ;-) )
 
-### in location 2 // localhost
+### *client* in location 2 // localhost
 1. clone this repository into a folder of your choice
 2. edit the settings in XYZ.js
     - APIend
