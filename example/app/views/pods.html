@@ -1,0 +1,11 @@
+<h3>
+    Hey there! Hope you've got your {{podType}} set up correctly in the
+</h3>
+<button class="btn btn-primary" ng-click="addPod();">add new Pod</button>
+
+<div ng-repeat="pod in pods | orderBy:'ID'">
+    ({{pod.ID}}) {{pod.post_title}} <br/>
+    last edited: {{pod.post_modified | date:'short'}}
+    <button ng-click="editPod(pod);" class="btn btn-info">edit</button>
+    <button ng-click="deletePod(pod);" class="btn btn-danger">delete</button>
+</div>
