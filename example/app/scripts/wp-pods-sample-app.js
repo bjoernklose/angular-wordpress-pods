@@ -78,7 +78,7 @@ var ModalPodEditorCtrl = function ($scope, $modalInstance, editPod) {
                 PodsService.save(podAfterEdit).success(function(podAfterSaving) {
 
                     // add new element to pods in UI
-                    $scope.pods.push(podAfterSaving);
+                    $scope.pods[podAfterSaving.id] = podAfterSaving;
 
                     // TODO: handle result of adding process here or in PodsService
                     // e.g. show notification to user
@@ -128,8 +128,7 @@ var ModalPodEditorCtrl = function ($scope, $modalInstance, editPod) {
             PodsService.delete(pod)
                 .success(function(data) {
                     // remove element from our scope
-                    var index=$scope.pods.indexOf(pod);
-                    $scope.pods.splice(index,1);
+                    delete $scope.pods[pod.id];
                 })
                 .error(function(data, headers) {
                     // TODO: nice error handling

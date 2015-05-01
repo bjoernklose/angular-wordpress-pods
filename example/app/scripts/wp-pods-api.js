@@ -65,21 +65,11 @@ angular.module('wp-pods-api', [])
         return $http({
             url: APIend + podType,
             method: "GET"
-            /*,
-            // Because Pods are returned as an Object with IDs as their index instead of a flat array, pre-parse them here
-            transformResponse: function (data) {
-                data = JSON.parse(data);
-                angular.forEach(data, function(entry, index) {
-                    entry.ID = index; // because we need to be able to edit them later based on this
-                });
-
-                return data;
-            }*/
         });
     };
 
     PodService.save = function(pod) {
-        if (pod.ID !== undefined) {
+        if (pod.id !== undefined) {
             return PodService.update(pod);
         }
         else {
@@ -100,7 +90,7 @@ angular.module('wp-pods-api', [])
 
     PodService.update = function(pod) {
 
-        var podId = pod.ID;
+        var podId = pod.id || pod.ID;
 
         return $http({
             url: APIend + pod.post_type + "/" + podId,
@@ -122,8 +112,9 @@ angular.module('wp-pods-api', [])
     };
 
     PodService.delete = function(pod) {
+		var podId = pod.ID || pod.id;
         return $http({
-            url: APIend + pod.post_type + "/" + pod.ID,
+            url: APIend + pod.post_type + "/" + podId,
             method: "DELETE"
         });
     };
